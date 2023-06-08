@@ -1,0 +1,31 @@
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.timer {
+  font-size: 2rem;
+  margin: 2rem 0;
+}
+
+.buttons button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+.options {
+  margin-top: 2rem;
+}
+
+.options label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.options select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inscription</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/add-friend.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sign.css') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='images/study_bg.jpg') }}");
+            background-size: cover;
+        }
+        
+        {% if invalid %}
+        #password {
+            border: 1px solid red;
+        }
+        .invalid-message {
+            color: red;
+            font-size: 0.8rem;
+        }
+        {% endif %}
+        
+        {% if invalid_pass %}
+        #confirm-password {
+            border: 1px solid #ff0000;
+        }
+        .invalid-pass-message {
+            color: red;
+            font-size: 0.8rem;
+        }
+        {% endif %}
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>inscription</h2>
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label for="nom">Nom:</label>
+                <input type="text" id="nom" name="nomed" required>
+            </div>
+              
+          <div class="form-group">
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom" name="prenom" required>
+          </div>
+          <div class="form-group">
+            <label for="telephone">Numéro de téléphone:</label>
+            <input type="tel" id="telephone" name="telephone" minlength="8" maxlength="8" required>
+          </div>
+          <div class="form-group">
+            <label for="bac">Option de baccalauréat:</label>
+            <select id="bac" name="bac">
+              <option value="math">Bac Mathématiques</option>
+              <option value="sc">Bac Sciences</option>
+              <option value="Technique">Bac Technique</option>
+              <option value="lettre">Bac Lettres</option>
+              <option value="info">Bac Informatique</option>
+              <option value="eco">Bac Économie</option>
+              <option value="sport">Bac sports</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="bac-year">Année du Bac:</label>
+            <input type="number" id="bac-year" name="bac-year" placeholder="Ex: 2024" minlength="8" maxlength="8" min="2024" max="" required>
+          </div>
+          <div class="form-group">
+            {% if invalid %}
+            <label for="password">Mot de passe:</label>
+            <input type="password" id="password" name="password" required>
+            <label class="invalid-message" for="password">{{ invalid }}</label>
+            
+            {% else %}
+            <label for="password">Mot de passe:</label>
+            <input type="password" id="password" name="password" required>
+            {% endif %}
+          </div>
+          <div class="form-group">
+            {% if invalid_pass %}
+            <label for="confirm-password">Confirmez le mot de passe:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+            <label class="invalid-pass-message" for="confirm-password">{{ invalid_pass }}</label>
+            {% else %}
+            <label for="confirm-password">Confirmez le mot de passe:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+            {% endif %}
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Soumettre">
+          </div>
+        </form>
+      </div>
+</body>
+</html>

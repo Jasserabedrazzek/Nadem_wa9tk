@@ -1,0 +1,206 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #333;
+  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+#navbar-links {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+}
+
+#navbar-links li {
+  margin-left: 20px;
+}
+
+#navbar-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+#navbar-links li a:hover {
+  text-decoration: underline;
+  color: orange; }
+
+.toggle-button {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+.toggle-button:hover {
+  color: red;
+}
+/* Media queries for responsive design */
+
+@media (max-width: 768px) {
+  .logo {
+    font-size: 20px;
+  }
+
+  #navbar-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #333;
+    padding: 20px;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+  }
+
+  #navbar-links li {
+    margin: 10px 0;
+  }
+
+  .toggle-button {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+  }
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container {
+  position: relative;
+}
+.info-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.info {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.welcome_user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.welcome_user h2 {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-weight: bold;
+}
+.annee {
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  color: #fff;
+}
+/* Media queries for responsive design */
+
+@media (max-width: 768px) {
+  .welcome_user {
+    height: auto;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .welcome_user h2 {
+    font-size: 18px;
+  }
+}
+
+.event-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.event-table th,
+.event-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  color: #fff;
+}
+/* Default styles for inputs */
+.events {
+  width:85%;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Styles for desktop */
+@media (min-width: 768px) {
+  .events {
+    /* Add desktop-specific styles here */
+  }
+}
+
+/* Styles for mobile */
+@media (max-width: 767px) {
+  .events {
+    /* Add mobile-specific styles here */
+  }
+}
+
+
+/* CSS for mobile */
+@media (max-width: 600px) {
+  .event-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .event-table th,
+  .event-table td {
+    white-space: nowrap;
+  }
+}
+/* Add the following CSS rules to center the submit buttons */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="submit"] {
+  /* Your existing styles */
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  /* Additional styles for centering */
+  margin-top: 16px;
+  align-self: center;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome to nedem w9tek</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/login.png') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='images/study_bg.jpg') }}")
+            ;
+            background-size: cover;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form method="post" action="/home">
+          <label for="username">numero de téléphon</label>
+          <input type="tel" id="username" name="telephone" minlength="8" maxlength="8" placeholder="Entrez votre numéro de téléphone">
+        
+          <label for="password">Mot de passe</label>
+          <input type="password" id="password" name="password" placeholder="Tapez votre mot de passe">
+    
+          <button type="submit">connexion</button>
+        </form>
+        <label for="btn">Vous n'avez pas encore de compte?</label>
+        <button onclick="location.href='{{ url_for('sign') }}'" name="btn">S'inscrire</button>
+        <script src="{{ url_for('static', filename='javascript/sc.js') }}"></script>
+      </div>
+</body>
+</html>
+

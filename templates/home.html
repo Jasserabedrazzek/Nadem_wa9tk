@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='images/home.png') }}">
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      background-image: url("{{ url_for('static', filename='images/ready-back-school.jpg') }}");
+      background-size: cover;
+    }
+
+    .info-box {
+      display: none; /* Hide the info-box by default */
+    }
+
+    .info-toggle-button {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .info-box.active {
+      display: block; /* Show the info-box when it has the active class */
+      /* Additional styling for the active state */
+    }
+  </style>
+  <script>
+    function toggleInfoBox() {
+      var infoBox = document.querySelector('.info-box');
+      infoBox.classList.toggle('active');
+    }
+  </script>
+  <title>Nadem wa9tek</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="navbar">
+        <div class="logo-container">
+          
+          <button id="info-toggle-button" class="info-toggle-button" onclick="toggleInfoBox()">{{Fname}}'s info</button>
+          <div class="info-box">
+            <span class="info">Nom: {{Fname}}</span>
+            <span class="info">prénom: {{name}}</span>
+            <span class="info">Téléphone: {{tel}}</span>
+            <span class="info">Bac: {{option}}</span>
+            <span class="info">Bac Année: {{bac_année}}</span>
+          </div>
+        </div>
+        <button class="toggle-button" onclick="toggleNavbar()">☰</button>
+        <ul id="navbar-links">
+          <li><a href="{{ url_for('Pomodoro') }}">Pomodoro Technique</a></li>
+          {% if math %}
+          <li><a href="{{math}}">Revision Math</a></li>
+          {% endif %}
+          <li><a href="{{url}}">Devoirs bac {{option}} principal </a></li>
+          <li><a href="https://www.devoirat.net/">Devoirs et Series</a></li>
+          <li><a href="{{ url_for('logout') }}" class="logout">Login out</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <div class="welcome_user">
+    <h2>Bienvenue  {{Fname}}</h2>
+  </div>
+  <div class="annee">
+    <h4>année scolaire {{pre_année}}/{{bac_année}} </h4>
+  </div>
+  <form action="/saved" method="post">
+    <input type="hidden" name="telephone_user" value="{{tel}}">
+    <table class="event-table">
+
+      <thead>
+        <tr>
+          <th>N°</th>
+          <th>Event</th>
+          <th>Date</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><input type="text" class="events" id="events" name="event1"> </td>
+          <td><input type="date" class="events" id="events" name="date1"></td>
+          <td><input type="time" class="events" id="events" name="time1"></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><input type="text" class="events" id="events" name="event2"> </td>
+          <td><input type="date" class="events" id="events" name="date2"></td>
+          <td><input type="time" class="events" id="events" name="time2"></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><input type="text" class="events" id="events" name="event3"> </td>
+          <td><input type="date" class="events" id="events" name="date3"></td>
+          <td><input type="time" class="events" id="events" name="time3"></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><input type="text" class="events" id="events" name="event4"> </td>
+          <td><input type="date" class="events" id="events" name="date4"></td>
+          <td><input type="time" class="events" id="events" name="time4"></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><input type="text" class="events" id="events" name="event5"> </td>
+          <td><input type="date" class="events" id="events" name="date5"></td>
+          <td><input type="time" class="events" id="events" name="time5"></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><input type="text" class="events" id="events" name="event6"> </td>
+          <td><input type="date" class="events" id="events" name="date6"></td>
+          <td><input type="time" class="events" id="events" name="time6"></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><input type="text" class="events" id="events" name="event7"> </td>
+          <td><input type="date" class="events" id="events" name="date7"></td>
+          <td><input type="time" class="events" id="events" name="time7"></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><input type="text" class="events" id="events" name="event8"> </td>
+          <td><input type="date" class="events" id="events" name="date8"></td>
+          <td><input type="time" class="events" id="events" name="time"></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td><input type="text" class="events" id="events" name="event9"> </td>
+          <td><input type="date" class="events" id="events" name="date9"></td>
+          <td><input type="time" class="events" id="events" name="time9"></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><input type="text" class="events" id="events" name="event10"> </td>
+          <td><input type="date" class="events" id="events" name="date10"></td>
+          <td><input type="time" class="events" id="events" name="time10"></td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td><input type="text" class="events" id="events" name="event11"> </td>
+          <td><input type="date" class="events" id="events" name="date11"></td>
+          <td><input type="time" class="events" id="events" name="time11"></td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td><input type="text" class="events" id="events" name="event12"> </td>
+          <td><input type="date" class="events" id="events" name="date12"></td>
+          <td><input type="time" class="events" id="events" name="time12"></td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td><input type="text" class="events" id="events" name="event13"> </td>
+          <td><input type="date" class="events" id="events" name="date13"></td>
+          <td><input type="time" class="events" id="events" name="time13"></td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td><input type="text" class="events" id="events" name="event14"> </td>
+          <td><input type="date" class="events" id="events" name="date14"></td>
+          <td><input type="time" class="events" id="events" name="time14"></td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td><input type="text" class="events" id="events" name="event15"> </td>
+          <td><input type="date" class="events" id="events" name="date15"></td>
+          <td><input type="time" class="events" id="events" name="time15"></td>
+        </tr>
+      </tbody>
+    </table>
+    <input type="submit" value="enregistrement le tableau Tableau">
+  </form>
+  <form action="/recent" method="post">
+    <div class="recent">
+      <input type="hidden" name="tel_user" value="{{tel}}" required>
+      <input type="submit" value="recent">
+    </div>
+  </form>
+  
+  
+  <script src="{{ url_for('static', filename='javascript/script.js') }}"></script>
+</body>
+</html>

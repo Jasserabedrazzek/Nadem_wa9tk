@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* CSS for desktop */
+    body {
+            background-image: url("{{ url_for('static', filename='images/ready-back-school.jpg') }}");
+            background-size: cover;
+        }
+    .event-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    h2 {
+        text-align: center;
+        color: white;
+        background-color: rgba(0, 255, 191, 0.3);
+        
+}
+
+
+    .event-table th,
+    .event-table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+      color: white;
+    }
+
+    /* CSS for mobile */
+    @media (max-width: 600px) {
+    .event-table {
+      display: block;
+      overflow-x: auto;
+      width: 100%;
+    }
+  
+    .event-table th,
+    .event-table td {
+      white-space: nowrap;
+      width: 100%;
+    }
+}
+    
+  </style>
+</head>
+<body>
+    <h2>{{user_name}} event</h2>
+  <table class="event-table">
+    <thead>
+      <tr>
+        <th>N°</th>
+        <th>Event</th>
+        <th>Date</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for index, event in enumerate(events, 1) %}
+      <tr>
+        <td>{{ index }}</td>
+        <td>{{ event.event }}</td>
+        <td>{{ event.date }}</td>
+        <td>{{ event.time }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

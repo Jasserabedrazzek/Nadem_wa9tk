@@ -1,0 +1,1 @@
+web: gunicorn nadem wa9tek:app

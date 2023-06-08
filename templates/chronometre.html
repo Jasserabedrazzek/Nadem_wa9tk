@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Technique</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chr.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/pomodoro-technique.png') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='images/ready-back-school.jpg') }}");
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pomodoro Technique</h1>
+        <div class="timer">
+          <span id="minutes">25</span>:<span id="seconds">00</span>
+        </div>
+        <div class="buttons">
+          <button onclick="startTimer()">Start</button>
+          <button onclick="pauseTimer()">Pause</button>
+          <button onclick="stopTimer()">Stop</button>
+        </div>
+
+        <div class="options">
+          <label for="break-duration">Break Duration:</label>
+          <select id="break-duration">
+            <option value="5">5 minutes</option>
+            <option value="6">6 minutes</option>
+            <option value="7">7 minutes</option>
+            <option value="8">8 minutes</option>
+            <option value="9">9 minutes</option>
+            <option value="10">10 minutes</option>
+          </select>
+          
+          <label for="repetitions">Repetitions:</label>
+          <select id="repetitions">
+            <option value="1">1 time</option>
+            <option value="2">2 times</option>
+            <option value="3">3 times</option>
+            <option value="4">4 times</option>
+            <option value="5">5 times</option>
+            <option value="6">6 times</option>
+            <option value="7">7 times</option>
+            <option value="8">8 times</option>
+            <option value="9">9 times</option>
+            <option value="10">10 times</option>
+          </select>
+        </div>
+        <div class="comments">
+            <p>
+                Yes you can
+            </p>
+        </div>
+        <audio id="background-audio" loop autoplay>
+            <source src="{{ url_for('static', filename='audio/school_bells.mp3') }}" type="audio/mp3">
+            Your browser does not support the audio element.
+          </audio>
+      </div>
+    <script src="{{ url_for('static', filename='javascript/chr.js') }}"></script>
+</body>
+</html>
